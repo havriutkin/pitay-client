@@ -1,10 +1,24 @@
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { loginPassword } from "../features/auth/authSlice";
+import { useNavigate } from "react-router";
 
 function Login(){
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
     const [formType, setFormType] = useState("login");
 
     const handleFromChange = (ev) => {
         setFormType(prev => ev.target.value);
+    }
+    
+    const handleSubmit = (ev) => {
+        const userData = {
+            password: "TestPassword4",
+            username: "TestEmail4@gmail.com"
+        }
+        dispatch(loginPassword(userData));
+        navigate('/');
     }
 
     return (
@@ -31,7 +45,7 @@ function Login(){
                     <input type="text" placeholder="Password" className="w-2/3 p-2 m-2 text-black"/>
                 </div>
                 <div className="w-full h-1/4 flex items-center justify-center">
-                    <button className="w-2/3 h-1/3 bg-custom-green text-2xl">
+                    <button className="w-2/3 h-1/3 bg-custom-green text-2xl" onClick={handleSubmit}>
                         {formType === 'login' ? "Log In" : "Sign Up"}
                     </button>
                 </div>
