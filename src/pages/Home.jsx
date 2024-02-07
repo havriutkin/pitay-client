@@ -1,9 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
-import { decrement, increment } from "../features/counter/counterSlice";
 import Header from "../components/Header";
 
 function Home(){
-    const count = useSelector(state => state.counter.value);
     const dispatch = useDispatch();
 
     return (
