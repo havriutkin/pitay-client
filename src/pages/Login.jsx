@@ -2,6 +2,8 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { loginPassword, signup } from "../features/auth/authThunks";
 import { useNavigate } from "react-router";
+import CustomTextField from "../components/CustomTextField";
+import { Button } from "@mui/material";
 
 function Login(){
     const navigate = useNavigate();
@@ -14,6 +16,9 @@ function Login(){
 
     const handleFromChange = (ev) => {
         setFormType(prev => ev.target.value);
+        setUsername("");
+        setEmail("");
+        setPassword("");
     }
 
     const handleUsernameChange = (ev) => {
@@ -50,29 +55,32 @@ function Login(){
                 <h3 className="font-open-sans text-4xl">Login Form</h3>
                 <div className="w-full h-1/4 flex items-center justify-center font-open-sans">
                     <button value="login" onClick={handleFromChange} 
-                            className={`w-1/3 border p-3 transition-all duration-500 
+                            className={`w-1/3 border p-3 transition-all duration-500 rounded-sm rounded-r-none
                                         ${formType === 'login' ? 'bg-lighter-blue' : ''}`}>
                         Log In
                     </button>
                     <button value="signup" onClick={handleFromChange} 
-                            className={`w-1/3 border p-3 transition-all duration-500 
+                            className={`w-1/3 border p-3 transition-all duration-500 rounded-sm rounded-l-none
                                         ${formType === 'login' ? '' : 'bg-lighter-blue'}`}>
                         Sign Up
                     </button>
                 </div>
-                <div className="w-full h-1/4 p-3 flex flex-col items-center justify-around text-left">
+                <div className="w-full h-1/2 p-3 flex flex-col items-center justify-around text-left">
                     {formType === 'login' ? "" : 
-                    <input type="text" placeholder="Username" className="w-2/3 p-2 m-2 text-black" 
+                    <CustomTextField required 
+                            variant="outlined" label="Username" 
                             value={username} onChange={handleUsernameChange}/>}
-                    <input type="text" placeholder="Email Address" className="w-2/3 p-2 m-2 text-black"
+                    <CustomTextField required 
+                            variant="outlined" label="Email"
                             value={email} onChange={handleEmailChange}/>
-                    <input type="text" placeholder="Password" className="w-2/3 p-2 m-2 text-black"
+                    <CustomTextField required
+                            variant="outlined" label="Password"
                             value={password} onChange={handlePasswordChange}/>
                 </div>
                 <div className="w-full h-1/4 flex items-center justify-center">
-                    <button className="w-2/3 h-1/3 bg-custom-green text-2xl" onClick={handleSubmit}>
+                    <Button variant="contained" size="large" onClick={handleSubmit}>
                         {formType === 'login' ? "Log In" : "Sign Up"}
-                    </button>
+                    </Button>
                 </div>
             </div>
         </div>
