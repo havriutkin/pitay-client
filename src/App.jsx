@@ -6,6 +6,7 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import LessonForm from "./pages/LessonForm";
 import LessonJoin from "./pages/LessonJoin";
+import Profile from "./pages/Profile";
 
 /*
   TODO implement redux authSlicer, questionSlicer, lessonSlicer
@@ -22,6 +23,7 @@ function App() {
           <Route path="/login" element={<Login/>}></Route>
           <Route path="/createLesson" element={<LessonForm/>}></Route>
           <Route path="/joinLesson" element={<LessonJoin/>}></Route>
+          <Route path="/profile" element={<Profile/>}></Route>
         </Routes>
       </Router>
     </>

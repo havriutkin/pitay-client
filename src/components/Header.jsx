@@ -1,10 +1,8 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { logout } from "../features/auth/authThunks";
 
 function Header(){
     const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
-    const dispatch = useDispatch();
 
     const notLoggedNav = (
         <nav className="w-1/4">
@@ -26,8 +24,8 @@ function Header(){
                     <Link to='/' className="border w-32 text-center p-3">Home</Link>
                 </li>
                 <li className="">
-                    <Link to='/' className="border w-32 text-center p-3">
-                        Log Out
+                    <Link to='/profile' className="border w-32 text-center p-3">
+                        Profile
                     </Link>
                 </li>
             </ol>
