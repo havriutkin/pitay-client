@@ -6,12 +6,12 @@ function Header(){
 
     const notLoggedNav = (
         <nav className="w-1/4">
-            <ol className="w-full h-full flex justify-center">
+            <ol className="w-full h-full flex justify-center font-open-sans">
                 <li className="">
-                    <Link to='/' className="border w-32 text-center p-3">Home</Link>
+                    <Link to='/' className=" no-underline border w-32 text-center p-3">Home</Link>
                 </li>
                 <li className="">
-                    <Link to='/login' className="border w-32 text-center p-3">Sign Up / Log In</Link>
+                    <Link to='/login' className=" no-underline border w-32 text-center p-3">Sign Up / Log In</Link>
                 </li>
             </ol>
         </nav>

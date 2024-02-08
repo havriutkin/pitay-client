@@ -1,9 +1,7 @@
-import { useDispatch, useSelector } from "react-redux";
 import Header from "../components/Header";
 import { Button } from "@mui/material";
 
 function Home(){
-    const dispatch = useDispatch();
 
     return (
         <div className="w-screen h-screen bg-dark-blue flex flex-col items-center justify-around">
