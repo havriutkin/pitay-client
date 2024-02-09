@@ -1,17 +1,26 @@
+import { AppBar, Button, Container } from "@mui/material";
 import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function Header(){
+    const navigate = useNavigate();
     const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
 
     const notLoggedNav = (
         <nav className="w-1/4">
-            <ol className="w-full h-full flex justify-center font-open-sans">
-                <li className="">
-                    <Link to='/' className=" no-underline border w-32 text-center p-3">Home</Link>
+            <ol className="w-full h-full flex items-center justify-center 
+                        font-roboto list-none">
+                <li>
+                    <Button variant="text" onClick={() => navigate('/')}
+                            className="text-white text-lg hover:bg-gray-500 m-5">
+                        HOME
+                    </Button>
                 </li>
-                <li className="">
-                    <Link to='/login' className=" no-underline border w-32 text-center p-3">Sign Up / Log In</Link>
+                <li>
+                    <Button variant="text" onClick={() => navigate('/login')}
+                            className="text-white text-lg hover:bg-gray-500 m-5">
+                        LOGIN
+                    </Button>
                 </li>
             </ol>
         </nav>
@@ -19,18 +28,33 @@ function Header(){
 
     const loggedNav = (
         <nav className="w-1/4">
-            <ol className="w-full h-full flex justify-center">
-                <li className="">
-                    <Link to='/' className="border w-32 text-center p-3">Home</Link>
+            <ol className="w-full h-full flex items-center justify-center 
+                        font-roboto list-none">
+                <li>
+                    <Button variant="text" onClick={() => navigate('/')}
+                            className="text-white text-lg hover:bg-gray-500 m-5">
+                        HOME
+                    </Button>
                 </li>
-                <li className="">
-                    <Link to='/profile' className="border w-32 text-center p-3">
-                        Profile
-                    </Link>
+                <li>
+                    <Button variant="text" onClick={() => navigate('/profile')}
+                            className="text-white text-lg hover:bg-gray-500 m-5">
+                        PROFILE
+                    </Button>
                 </li>
             </ol>
         </nav>
     );
+
+    return (
+        <div className="w-full h-20 top-0 fixed 
+                        flex items-center justify-between
+                        text-white bg-light-blue
+                        shadow-xl">
+            <h1 className="ml-5 tracking-wider font-squada-one">PITAY</h1>    
+            {isLoggedIn ? loggedNav : notLoggedNav}
+        </div>
+    )
 
     return (
         <div className="w-full h-20 top-0 fixed border-b p-3 flex items-center justify-between text-white">

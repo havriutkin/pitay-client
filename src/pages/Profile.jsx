@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../features/auth/authThunks";
 import { useNavigate } from "react-router";
+import { Button } from "@mui/material";
 
 function Profile(){
     const navigate = useNavigate();
@@ -23,7 +24,7 @@ function Profile(){
                     <p className="text-lg">Your lessons will be here!</p>
                 </div>
                 <div className="w-full flex flex-col items-center justify-around">
-                    <button className="border p-3" onClick={handleLogOut}>Log Out</button>
+                    <Button variant="contained" color="error" className="border p-3" onClick={handleLogOut}>Log Out</Button>
                 </div>
             </div>
         </div>

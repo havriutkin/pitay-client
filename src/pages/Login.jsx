@@ -51,19 +51,20 @@ function Login(){
         <div className="w-screen h-screen bg-dark-blue flex items-center justify-around">
             <div className="bg-light-blue p-3
                             border border-white h-3/4 w-1/3 
-                            flex flex-col items-center justify-around text-white">
-                <h3 className="font-open-sans text-4xl">Login Form</h3>
+                            flex flex-col items-center justify-around text-white
+                             shadow-2xl">
+                <h3 className="font-roboto text-4xl">Login Form</h3>
                 <div className="w-full h-1/4 flex items-center justify-center font-open-sans">
-                    <button value="login" onClick={handleFromChange} 
+                    <Button  variant="contained"value="login" onClick={handleFromChange} 
                             className={`w-1/3 border p-3 transition-all duration-500 rounded-sm rounded-r-none
                                         ${formType === 'login' ? 'bg-lighter-blue' : ''}`}>
                         Log In
-                    </button>
-                    <button value="signup" onClick={handleFromChange} 
+                    </Button>
+                    <Button variant="contained" value="signup" onClick={handleFromChange} 
                             className={`w-1/3 border p-3 transition-all duration-500 rounded-sm rounded-l-none
                                         ${formType === 'login' ? '' : 'bg-lighter-blue'}`}>
                         Sign Up
-                    </button>
+                    </Button>
                 </div>
                 <div className="w-full h-1/2 p-3 flex flex-col items-center justify-around text-left">
                     {formType === 'login' ? "" : 

@@ -16,7 +16,8 @@ export default {
 			},
 			fontFamily: {
 				'open-sans': ['Open Sans', 'sans-serif'],
-				'squada-one': ['Squada One', 'sans-serif']
+				'squada-one': ['Squada One', 'sans-serif'],
+				'roboto': ['Roboto', 'sans-serif']
 			}
 		},
 	},
