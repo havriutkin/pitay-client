@@ -21,8 +21,23 @@ export const createLesson = createAsyncThunk('lesson/create', async (lessonData,
         if (response.status === 201) {
             return {...lessonData, publicKey: data.publicKey};
         }
-        rejectWithValue(data.message);
+        return rejectWithValue(data.message);
     } catch(err) {
-        rejectWithValue(err.message);
+        return rejectWithValue(err.message);
+    }
+});
+
+export const getLessonsByUser = createAsyncThunk('lesson/readByUser', async (userId, {rejectWithValue}) => {
+    const url = `${baseUrl}/lesson/?ownerId=${userId}`;
+
+    try {
+        const response = await fetch(url);
+        const data = await response.json();
+        if (response.status === 200) {
+            return data.lessons;
+        }
+        return rejectWithValue(data.message);
+    } catch(err) {
+        return rejectWithValue(err.message);
     }
 });

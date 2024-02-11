@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { createLesson } from "./lessonThunks";
+import { createLesson, getLessonsByUser } from "./lessonThunks";
 
 const initialState = {
     lessons: null,
@@ -16,6 +16,7 @@ const lessonSlice = createSlice({
         builder
             .addCase(createLesson.pending, (state) => {
                 state.isLoading = true;
+                state.error = null;
             })
             .addCase(createLesson.fulfilled, (state, action) => {
                 state.lessons = [...state.lessons, {title: action.payload.title, 
@@ -23,7 +24,19 @@ const lessonSlice = createSlice({
                 state.isLoading = false;
             })
             .addCase(createLesson.rejected, (state, action) => {
-                state.isLoading = false,
+                state.isLoading = false;
+                state.error = action.payload;
+            })
+            .addCase(getLessonsByUser.pending, (state) => {
+                state.isLoading = true;
+                state.error = null;
+            })
+            .addCase(getLessonsByUser.fulfilled, (state, action) => {
+                state.isLoading = false;
+                state.lessons = action.payload;
+            })
+            .addCase(getLessonsByUser.rejected, (state, action) => {
+                state.isLoading = false;
                 state.error = action.payload;
             })
     }

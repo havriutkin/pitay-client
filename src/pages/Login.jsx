@@ -33,7 +33,7 @@ function Login(){
         setPassword(() => ev.target.value);
     }
     
-    const handleSubmit = (ev) => {
+    const handleSubmit = () => {
         const userData = {
             ... (formType === 'signup' && {username} ),
             email,
@@ -55,7 +55,7 @@ function Login(){
                              shadow-2xl">
                 <h3 className="font-roboto text-4xl">Login Form</h3>
                 <div className="w-full h-1/4 flex items-center justify-center font-open-sans">
-                    <Button  variant="contained"value="login" onClick={handleFromChange} 
+                    <Button  variant="contained" value="login" onClick={handleFromChange} 
                             className={`w-1/3 border p-3 transition-all duration-500 rounded-sm rounded-r-none
                                         ${formType === 'login' ? 'bg-lighter-blue' : ''}`}>
                         Log In

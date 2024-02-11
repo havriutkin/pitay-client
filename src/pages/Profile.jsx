@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../features/auth/authThunks";
 import { useNavigate } from "react-router";
 import { Button } from "@mui/material";
+import LessonsDisplay from "../components/LessonsDisplay";
 
 function Profile(){
     const navigate = useNavigate();
@@ -21,7 +22,7 @@ function Profile(){
                     <h1 className="text-3xl">{`Hi, ${user.username}!`}</h1>
                 </div>
                 <div className="w-full h-3/4 flex flex-col items-center justify-around">
-                    <p className="text-lg">Your lessons will be here!</p>
+                    <LessonsDisplay/>
                 </div>
                 <div className="w-full flex flex-col items-center justify-around">
                     <Button variant="contained" color="error" className="border p-3" onClick={handleLogOut}>Log Out</Button>
