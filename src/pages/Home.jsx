@@ -1,7 +1,8 @@
-import Header from "../components/Header";
 import { Button } from "@mui/material";
+import { useNavigate } from "react-router";
 
 function Home(){
+    const navigate = useNavigate();
 
     return (
         <div className="w-screen h-screen bg-dark-blue flex flex-col items-center justify-around">
@@ -13,7 +14,10 @@ function Home(){
             </div>
             <div className="w-3/4 flex items-start justify-around">
                 <Button variant="contained" className="w-1/3">Join Lesson</Button>
-                <Button variant="contained" className="w-1/3">Create Lesson</Button>
+                <Button variant="contained" className="w-1/3"
+                        onClick={() => navigate("/lesson/create")}>
+                    Create Lesson
+                </Button>
             </div>
         </div>
     )

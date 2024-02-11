@@ -52,7 +52,7 @@ export const loginPassword = createAsyncThunk('auth/loginPassword', async (userD
 
 });
 
-export const logout = createAsyncThunk('auth/logout', async (undefined, { rejectWithValue }) => {
+export const logout = createAsyncThunk('auth/logout', async (_, { rejectWithValue }) => {
     const url = `${baseUrl}/auth/logout`;
     const settings = {
         method: 'POST',

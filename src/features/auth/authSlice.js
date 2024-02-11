@@ -22,7 +22,8 @@ const authSlice = createSlice({
             .addCase(loginPassword.fulfilled, operationSuccess)
             .addCase(loginPassword.rejected, operationFailed)
             .addCase(logout.pending, startLoading)
-            .addCase(logout.fulfilled, (state, action) => {
+            // eslint-disable-next-line no-unused-vars
+            .addCase(logout.fulfilled, (state, _) => {
                 state.isLoggedIn = false;
                 state.loading = false;
                 state.user = null;

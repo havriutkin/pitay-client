@@ -15,22 +15,22 @@ function Login(){
     const [password, setPassword] = useState("");
 
     const handleFromChange = (ev) => {
-        setFormType(prev => ev.target.value);
+        setFormType(() => ev.target.value);
         setUsername("");
         setEmail("");
         setPassword("");
     }
 
     const handleUsernameChange = (ev) => {
-        setUsername(prev => ev.target.value);
+        setUsername(() => ev.target.value);
     }
 
     const handleEmailChange = (ev) => {
-        setEmail(prev => ev.target.value);
+        setEmail(() => ev.target.value);
     }
 
     const handlePasswordChange = (ev) => {
-        setPassword(prev => ev.target.value);
+        setPassword(() => ev.target.value);
     }
     
     const handleSubmit = (ev) => {
